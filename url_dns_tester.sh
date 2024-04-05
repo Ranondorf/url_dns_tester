@@ -1,6 +1,11 @@
 #!/usr/bin/bash
 
 
+# Example ./url_dns_tester.sh example.com path
+# Digs example.com
+# Curls https://example.com/path and returns status code
+
+
 output_file="output_file.txt"
 entry=0
 
