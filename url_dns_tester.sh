@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+
+output_file="output_file.txt"
+entry=0
+
+while :
+do
+	echo "###################################" >> $output_file
+	echo "#########Entry: $entry ###" >> $output_file
+	echo "###################################" >> $output_file
+        echo "--------------Date-----------------" >> $output_file
+	date >> $output_file
+	echo "--------------Dig------------------" >> $output_file
+	dig $1 @8.8.8.8 >> $output_file
+	dig $1 >> $output_file
+	echo "---------Curl--Result--------------" >> $output_file
+	curl -I -X GET https://$1/$2 | grep 'HTTP' >> $output_file
+	echo "###################################" >> $output_file
+	echo >> $output_file
+	entry=$((++entry))
+done
